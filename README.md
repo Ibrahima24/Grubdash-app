@@ -6,7 +6,7 @@ Of note, the front-end application was provided for this assignment.
 
 ## Screenshot
 ### Home Page:
-![home](/screenshots/home.jpg)
+![home](https://images.ctfassets.net/c7lxnbtvvcxm/4LmGQIVbchP9nSxprM6GRf/d0df0421c3eac33ad985d77cca94ebe2/GrubDash.png)
 
 ## Technology
 - Built with Node.js and Express server framework
