@@ -4,8 +4,7 @@ GrubDash is a fictional company that operates an online food ordering and food d
 For this Thinkful project, I set up a RESTful API, wrote custom validation functions, created route handlers, and built specific API endpoints. 
 Of note, the front-end application was provided for this assignment.
 
-## Screenshot
-### Home Page:
+## Home Page
 ![home](https://images.ctfassets.net/c7lxnbtvvcxm/4LmGQIVbchP9nSxprM6GRf/d0df0421c3eac33ad985d77cca94ebe2/GrubDash.png)
 
 ## Technology
