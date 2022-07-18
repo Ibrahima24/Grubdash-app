@@ -27,6 +27,7 @@ const createOrder = (req, res) => {
 	res.status(201).json({ data: newOrder });
 }
 
+
 const validateOrder = (req, res, next) => {
 	const { data: { deliverTo, mobileNumber, dishes } = {} } = req.body;
 
@@ -75,11 +76,27 @@ const validateOrderId = (req, res, next) => {
 	});
 }
 
-const updateOrder = (req, res) => {
-	const { data: { deliverTo, mobileNumber, dishes, status } = {} } = req.body;
+const updateOrder = (req, res, next) => {
+    const {orderId} = req.params;
+    const originalOrder = res.locals.order;
+	const { data: { id, deliverTo, mobileNumber, dishes, status } = {} } = req.body;
+    if(id && id !== orderId)
+      return next({
+        status: 400,
+        message: `Order id does not match route id. Order: ${id}, Route: ${orderId}`,
+      });
+    if (!status || status == "")
+      return next({status: 400, message: 'Order must include a status'});
+    if (status === "invalid")
+      return next({status: 400, message: 'Order status must be valid'});
+    if (status === "delivered")
+      return next({
+        status: 400,
+        message: 'A delivered order cannot be changed',
+      });
 
 	res.locals.order = {
-		id: res.locals.order.id,
+		id: originalOrder.id,
 		deliverTo: deliverTo,
 		mobileNumber: mobileNumber,
 		dishes: dishes,
